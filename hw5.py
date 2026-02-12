@@ -13,11 +13,17 @@ def order():
     amount = Amount.get()
     Size = size.get()
     if pizza == "margharita":
-        Total = 10 * Amount.get()
-    FullOrder = "you ordered " + str(amount) + " " + str(Size) + " " + str(pizza) + " pizza(s) for " + str(Total)
+        Total = 10 * int(amount)
+    if pizza == "Veggie":
+        Total = 15 * int(amount)
+    if pizza == "meat monster":
+        Total = 17 * int(amount)
+    if pizza == "pepperoni":
+        Total = 26 * int(amount)
+    FullOrder = ("you ordered " + str(amount) + " " + str(Size) + " " + str(pizza) + " pizza(s) for " + str(Total))
     Orders.configure(text = FullOrder)
  
-Title = Label(window, text = "Times Table Generator ", font = ("Ariel", 30))
+Title = Label(window, text = "Pizza deliver service ", font = ("Ariel", 30))
 Pizzabox = Label(window, text = "Choose a pizza: ", font = ("Ariel", 15))
 Amountbox = Label(window, text = "Choose an amount: ", font = ("Ariel", 15))
 Orders = Label(window)
